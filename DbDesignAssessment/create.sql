@@ -77,7 +77,8 @@ CREATE OR REPLACE TABLE petvaccination (
 	vaxDate		DATE,
 	petId			INT,
 	
-	FOREIGN KEY (vaxId) REFERENCES vaccination(id)	
+	FOREIGN KEY (vaxId) REFERENCES vaccination(id),
+	FOREIGN KEY (petId) REFERENCES pet(id)
 	);
 	
 	
@@ -85,8 +86,9 @@ CREATE OR REPLACE TABLE petvaccination (
 CREATE OR REPLACE TABLE appointment (
 	id				INT		PRIMARY KEY AUTO_INCREMENT,
 	customerId	INT,
+	petId INT,
 	doctorId		INT,
-	appt_time	DATETIME,
+	apptTime	DATETIME,
 	
 	FOREIGN KEY (customerId) REFERENCES customer(id)	
 	);
